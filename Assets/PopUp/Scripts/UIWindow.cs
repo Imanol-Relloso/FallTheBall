@@ -5,11 +5,11 @@ using UnityEngine;
 public class UIWindow : MonoBehaviour
 {
     [SerializeField]
-    private RectTransform canvasRectTransform;
+    protected RectTransform canvasRectTransform;
     [SerializeField]
-    private CanvasGroup canvasGroup;
+    protected CanvasGroup canvasGroup;
     [SerializeField]
-    private bool hideOnStart;
+    protected bool hideOnStart;
     
     [Header("Animation Settings")]
     [SerializeField]
@@ -21,9 +21,6 @@ public class UIWindow : MonoBehaviour
     protected Ease showEase = Ease.OutBack;    
     [SerializeField]
     protected Ease hideEase = Ease.InBack;
-    
-    
-    public CanvasGroup CanvasGroup => canvasGroup;
     
     void Start()
     {
