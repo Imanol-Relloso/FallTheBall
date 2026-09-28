@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class UIWindow : MonoBehaviour
 {
+    [Header("Data")]
+    [SerializeField] private string _id;
+
+    [Header("UI Settings")]
     [SerializeField]
     protected RectTransform canvasRectTransform;
     [SerializeField]
@@ -21,7 +25,9 @@ public class UIWindow : MonoBehaviour
     protected Ease showEase = Ease.OutBack;    
     [SerializeField]
     protected Ease hideEase = Ease.InBack;
-    
+
+    public string Id => _id;
+
     void Start()
     {
         Initialize();

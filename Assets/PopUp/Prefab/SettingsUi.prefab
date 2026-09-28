@@ -1690,6 +1690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ab85f5b8b286b4abb8476a08d79f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsUI
+  _id: Settings
   canvasRectTransform: {fileID: 5698841958035602564}
   canvasGroup: {fileID: 4604894441096398771}
   hideOnStart: 1

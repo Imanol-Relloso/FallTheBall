@@ -902,6 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864f298234ea40b43bb3260b55056f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopupUi
+  _id: PopupUi
   canvasRectTransform: {fileID: 5698841958035602564}
   canvasGroup: {fileID: 4604894441096398771}
   hideOnStart: 1
