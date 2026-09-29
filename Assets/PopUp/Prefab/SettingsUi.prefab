@@ -1696,8 +1696,10 @@ MonoBehaviour:
   hideOnStart: 1
   showDuration: 0.5
   hideDuration: 0.5
-  showEase: 27
-  hideEase: 26
+  showEase: 1
+  hideEase: 1
+  showPositionX: 540
+  hidePositionX: 2000
 --- !u!1 &6772151871967235762
 GameObject:
   m_ObjectHideFlags: 0

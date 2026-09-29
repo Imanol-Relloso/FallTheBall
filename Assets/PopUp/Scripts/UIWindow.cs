@@ -6,6 +6,7 @@ public class UIWindow : MonoBehaviour
 {
     [Header("Data")]
     [SerializeField] private string _id;
+    protected bool _isShowing;
 
     [Header("UI Settings")]
     [SerializeField]
@@ -27,6 +28,7 @@ public class UIWindow : MonoBehaviour
     protected Ease hideEase = Ease.InBack;
 
     public string Id => _id;
+    public bool IsShowing => _isShowing;
 
     void Start()
     {
@@ -51,7 +53,8 @@ public class UIWindow : MonoBehaviour
 
             rectTran.DOScale(Vector3.one, showDuration).SetEase(showEase); 
         }
-        
+
+        _isShowing = true;
     }
 
     public virtual void Hide(bool instant = false)
@@ -65,6 +68,8 @@ public class UIWindow : MonoBehaviour
             rectTran.DOScale(Vector3.zero, hideDuration).SetEase(hideEase).OnComplete(
                 ()=> canvasRectTransform.gameObject.SetActive(false)); 
         }
+
+        _isShowing = false;
     }
     
     #region Test
