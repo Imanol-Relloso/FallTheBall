@@ -1694,12 +1694,12 @@ MonoBehaviour:
   canvasRectTransform: {fileID: 5698841958035602564}
   canvasGroup: {fileID: 4604894441096398771}
   hideOnStart: 1
-  showDuration: 0.5
-  hideDuration: 0.5
+  showDuration: 0.2
+  hideDuration: 0.2
   showEase: 1
   hideEase: 1
-  showPositionX: 540
-  hidePositionX: 2000
+  showPositionX: 0
+  hidePositionX: 1460
 --- !u!1 &6772151871967235762
 GameObject:
   m_ObjectHideFlags: 0

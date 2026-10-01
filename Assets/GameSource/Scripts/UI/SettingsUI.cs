@@ -24,7 +24,7 @@ public class SettingsUI : UIWindow
     {
         if (instant)
         {
-            canvasGroup.GetComponent<RectTransform>().DOMoveX(showPositionX, 0);
+            canvasGroup.GetComponent<RectTransform>().DOAnchorPosX(showPositionX, 0);
             canvasRectTransform.gameObject.SetActive(true);
         }
         else
@@ -33,7 +33,7 @@ public class SettingsUI : UIWindow
                 
             RectTransform rectTran = canvasGroup.GetComponent<RectTransform>();
 
-            rectTran.DOMoveX(showPositionX, showDuration).SetEase(showEase); 
+            rectTran.DOAnchorPosX(showPositionX, showDuration).SetEase(showEase); 
         }
 
         _isShowing = true;
@@ -43,14 +43,14 @@ public class SettingsUI : UIWindow
     {
         if(instant)
         {
-            canvasGroup.GetComponent<RectTransform>().DOMoveX(hidePositionX, 0);
+            canvasGroup.GetComponent<RectTransform>().DOAnchorPosX(hidePositionX, 0);
             canvasRectTransform.gameObject.SetActive(false);
         }
         else
         {
             RectTransform rectTran = canvasGroup.GetComponent<RectTransform>();
 
-            rectTran.DOMoveX(hidePositionX, hideDuration).SetEase(hideEase).OnComplete(
+            rectTran.DOAnchorPosX(hidePositionX, hideDuration).SetEase(hideEase).OnComplete(
                 ()=> canvasRectTransform.gameObject.SetActive(false)); 
         }
 

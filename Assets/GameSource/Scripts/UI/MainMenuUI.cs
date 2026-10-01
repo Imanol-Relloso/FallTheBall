@@ -8,12 +8,12 @@ public class MainMenuUI : UIWindow
     [SerializeField]
     private float showPositionX = 540f;
     [SerializeField]
-    private float showPositionY = 2000f;
+    private float showPositionY = -1170f;
 
     [SerializeField]
-    private float hidePositionX = 2000f;
+    private float hidePositionX = -2000f;
     [SerializeField]
-    private float hidePositionY = 0f;
+    private float hidePositionY = 1170f;
 
     [Header("Record")]
     [SerializeField]
@@ -35,7 +35,7 @@ public class MainMenuUI : UIWindow
     {
         if (instant)
         {
-            canvasGroup.GetComponent<RectTransform>().DOMove(new Vector3(showPositionX, showPositionY, 0), 0);
+            canvasGroup.GetComponent<RectTransform>().DOAnchorPos(new Vector3(showPositionX, showPositionY, 0), 0);
             canvasRectTransform.gameObject.SetActive(true);
         }
         else
@@ -72,7 +72,7 @@ public class MainMenuUI : UIWindow
 
                     RectTransform rectTran = canvasGroup.GetComponent<RectTransform>();
 
-                    rectTran.DOMoveX(showPositionX, showDuration).SetEase(showEase);
+                    rectTran.DOAnchorPosX(showPositionX, showDuration).SetEase(showEase);
                     break;
                 }
 
@@ -82,17 +82,17 @@ public class MainMenuUI : UIWindow
 
                     RectTransform rectTran = canvasGroup.GetComponent<RectTransform>();
 
-                    rectTran.DOMoveY(-showPositionY, showDuration).SetEase(showEase);
+                    rectTran.DOAnchorPosY(-showPositionY, showDuration).SetEase(showEase);
                     break;
                 }
 
-            case "Game":
+            case "GameOver":
                 {
                     canvasRectTransform.gameObject.SetActive(true);
 
                     RectTransform rectTran = canvasGroup.GetComponent<RectTransform>();
 
-                    rectTran.DOMoveY(showPositionY, showDuration).SetEase(showEase);
+                    rectTran.DOAnchorPosY(showPositionY, showDuration).SetEase(showEase);
                     break;
                 }
 
@@ -110,15 +110,15 @@ public class MainMenuUI : UIWindow
         switch (windowId)
         {
             case "Settings":
-                rectTran.DOMoveX(hidePositionX, hideDuration).SetEase(hideEase).OnComplete(
+                rectTran.DOAnchorPosX(hidePositionX, hideDuration).SetEase(hideEase).OnComplete(
                             () => canvasRectTransform.gameObject.SetActive(false));
                 break;
             case "Credits":
-                rectTran.DOMoveY(-hidePositionY, hideDuration).SetEase(hideEase).OnComplete(
+                rectTran.DOAnchorPosY(-hidePositionY, hideDuration).SetEase(hideEase).OnComplete(
                         () => canvasRectTransform.gameObject.SetActive(false));
                 break;
             case "Game":
-                rectTran.DOMoveY(hidePositionY, hideDuration).SetEase(hideEase).OnComplete(
+                rectTran.DOAnchorPosY(hidePositionY, hideDuration).SetEase(hideEase).OnComplete(
                         () => canvasRectTransform.gameObject.SetActive(false));
                 break;
             default:
@@ -133,7 +133,7 @@ public class MainMenuUI : UIWindow
 
     public void Play()
     {
-        UIManager.Instance.ShowWindow("Game");
+        GameManager.Instance.StartGame();
         DirHide("Game");
     }
 

@@ -788,9 +788,9 @@ MonoBehaviour:
   canvasRectTransform: {fileID: 5698841958035602564}
   canvasGroup: {fileID: 4604894441096398771}
   hideOnStart: 1
-  showDuration: 0.5
-  hideDuration: 0.5
+  showDuration: 0.2
+  hideDuration: 0.2
   showEase: 1
   hideEase: 1
   showPositionY: 0
-  hidePositionY: -2000
+  hidePositionY: 3000

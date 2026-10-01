@@ -5,9 +5,9 @@ public class CreditsUI : UIWindow
 {
     [Header("Move positions")]
     [SerializeField]
-    private float showPositionY = 0f;
+    private float showPositionY = 1170f;
     [SerializeField]
-    private float hidePositionY = -2000f;
+    private float hidePositionY = 3170f;
     
     void Start()
     {
@@ -24,7 +24,7 @@ public class CreditsUI : UIWindow
     {
         if (instant)
         {
-            canvasGroup.GetComponent<RectTransform>().DOMoveY(showPositionY, 0);
+            canvasGroup.GetComponent<RectTransform>().DOAnchorPosY(showPositionY, 0);
             canvasRectTransform.gameObject.SetActive(true);
         }
         else
@@ -33,7 +33,7 @@ public class CreditsUI : UIWindow
 
             RectTransform rectTran = canvasGroup.GetComponent<RectTransform>();
 
-            rectTran.DOMoveY(showPositionY, showDuration).SetEase(showEase);
+            rectTran.DOAnchorPosY(showPositionY, showDuration).SetEase(showEase);
         }
 
         _isShowing = true;
@@ -43,14 +43,14 @@ public class CreditsUI : UIWindow
     {
         if (instant)
         {
-            canvasGroup.GetComponent<RectTransform>().DOMoveY(hidePositionY, 0);
+            canvasGroup.GetComponent<RectTransform>().DOAnchorPosY(hidePositionY, 0);
             canvasRectTransform.gameObject.SetActive(false);
         }
         else
         {
             RectTransform rectTran = canvasGroup.GetComponent<RectTransform>();
 
-            rectTran.DOMoveY(hidePositionY, hideDuration).SetEase(hideEase).OnComplete(
+            rectTran.DOAnchorPosY(hidePositionY, hideDuration).SetEase(hideEase).OnComplete(
                 () => canvasRectTransform.gameObject.SetActive(false));
         }
 

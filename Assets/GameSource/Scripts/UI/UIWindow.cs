@@ -38,7 +38,7 @@ public class UIWindow : MonoBehaviour
     public virtual void Initialize()
     {
         if(hideOnStart)
-            Hide();
+            Hide(true);
     }
     
     public virtual void Show(bool instant = false)
@@ -71,19 +71,4 @@ public class UIWindow : MonoBehaviour
 
         _isShowing = false;
     }
-    
-    #region Test
-
-    [Button]
-    private void ShowTest()
-    {
-        Show();
-    }    
-    [Button]
-    private void HideTest()
-    {
-        Hide();
-    }
-
-    #endregion
 }
