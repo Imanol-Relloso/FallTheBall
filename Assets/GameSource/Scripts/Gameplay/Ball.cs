@@ -21,21 +21,42 @@ public class Ball : MonoBehaviour
 
     private void OnEnable()
     {
-        ballInputSystem.Player.Move.performed += pressMove;
-        ballInputSystem.Player.Move.Enable();
+        InputManager.Instance.OnKeyInput += PressMove;
+        InputManager.Instance.OnDragEnd += HandleDragEnd;
+    }
+
+    private void HandleDragEnd(Vector2 dragDir)
+    {
+        Vector2 normalizedDragDir = dragDir.normalized;
+
+        if (Mathf.Abs(normalizedDragDir.x) > Mathf.Abs(normalizedDragDir.y))
+        {
+            if(normalizedDragDir.x > 0)
+                PressMove(Vector2.right);
+            else
+                PressMove(Vector2.left);
+        }
+        else
+        {
+            if (normalizedDragDir.y > 0)
+                PressMove(Vector2.up);
+            else
+                PressMove(Vector2.down);
+        }
     }
 
     private void OnDisable()
     {
-        ballInputSystem.Player.Move.Disable();
+        InputManager.Instance.OnKeyInput -= PressMove;
+        InputManager.Instance.OnDragEnd -= HandleDragEnd;
     }
 
-    private void pressMove(InputAction.CallbackContext ctx)
+    private void PressMove(Vector2 dir)
     {
         if (isMoving)
-            saveInput(ctx.ReadValue<Vector2>());
+            saveInput(dir);
         else
-            StartCoroutine(Move(ctx.ReadValue<Vector2>()));
+            StartCoroutine(Move(dir));
     }
 
     private void saveInput(Vector2 dir)

@@ -7,9 +7,29 @@
             "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "KeyboardMove",
                     "type": "Value",
                     "id": "351f2ccd-1f9f-44bf-9bec-d62ac5c5f408",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "PrimaryContact",
+                    "type": "Button",
+                    "id": "a9749d9e-bba8-4a84-8ff8-e42c01bb72fc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "PrimaryPosition",
+                    "type": "Value",
+                    "id": "d4f3755e-6d61-4953-8672-5a076c5139b8",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -25,7 +45,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -36,7 +56,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -47,7 +67,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -58,7 +78,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -69,7 +89,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -80,7 +100,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -91,7 +111,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -102,7 +122,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -113,7 +133,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -124,7 +144,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Move",
+                    "action": "KeyboardMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -135,7 +155,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "KeyboardMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e61bda9-0a77-452c-ac1f-4527f12ec825",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryContact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3725476e-0478-467f-9883-d8b20287e623",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
