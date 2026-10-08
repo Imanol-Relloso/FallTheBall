@@ -1,4 +1,5 @@
 using DG.Tweening;
+using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -99,6 +100,22 @@ public class GameOverUI : UIWindow
     public void ShowRecord()
     {
         //recordText.text = PlayerPrefs.GetInt("Record", 0).ToString();
+    }
+
+    #endregion
+    
+    #region Test
+
+    [Button("Test Show")]
+    private void ShowTest()
+    {
+        Show();
+    }
+    [Button("Test Hide")]
+
+    private void HideTest()
+    {
+        Hide();
     }
 
     #endregion
