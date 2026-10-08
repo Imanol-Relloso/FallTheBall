@@ -5,19 +5,19 @@ using UnityEngine.InputSystem;
 
 public class Ball : MonoBehaviour
 {
-    private BallInputSystem  ballInputSystem;
-    
-    private bool isMoving = false;
+    private bool _isMoving = false;
 
-    private Vector2 postMove;
+    private Vector2 _postMove;
+    
+    private int _maxX = 1;
+    private int _minX = -1;
+    private int _maxZ = 1;
+    private int _minZ = -1;
 
     [SerializeField] 
     private float moveTime = 0.1f;
 
-    private void Awake()
-    {
-        ballInputSystem = new BallInputSystem();
-    }
+
 
     private void OnEnable()
     {
@@ -53,30 +53,30 @@ public class Ball : MonoBehaviour
 
     private void PressMove(Vector2 dir)
     {
-        if (isMoving)
-            saveInput(dir);
+        if (_isMoving)
+            SaveInput(dir);
         else
             StartCoroutine(Move(dir));
     }
 
-    private void saveInput(Vector2 dir)
+    private void SaveInput(Vector2 dir)
     {
-        postMove = dir;
+        _postMove = dir;
     }
     
-    private void tryPostMove()
+    private void TryPostMove()
     {
-        if (postMove != Vector2.zero)
+        if (_postMove != Vector2.zero)
         {
-            StartCoroutine(Move(postMove));
-            postMove = Vector2.zero;
+            StartCoroutine(Move(_postMove));
+            _postMove = Vector2.zero;
         }
     }
 
     private IEnumerator Move(Vector2 dir)
     {
-        isMoving = true;
-        Vector2 finalPos = new Vector2(transform.position.x + dir.x, transform.position.z + dir.y);
+        _isMoving = true;
+        Vector2 finalPos = new Vector2(Mathf.Clamp(transform.position.x + dir.x, _minX, _maxX) ,Mathf.Clamp(transform.position.z + dir.y, _minZ, _maxZ));
 
         float t = 0;
 
@@ -93,8 +93,8 @@ public class Ball : MonoBehaviour
         }
         
         transform.position = new Vector3(finalPos.x, transform.position.y, finalPos.y);
-        isMoving = false; 
+        _isMoving = false; 
         
-        tryPostMove();
+        TryPostMove();
     }
 }
