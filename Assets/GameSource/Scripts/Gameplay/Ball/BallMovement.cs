@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Ball : MonoBehaviour
+public class BallMovement : MonoBehaviour
 {
     private bool _isMoving = false;
 

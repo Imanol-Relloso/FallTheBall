@@ -33,6 +33,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        UIManager.Instance.ShowWindow("GameOver");
+        //UIManager.Instance.ShowWindow("GameOver");
     }
 }

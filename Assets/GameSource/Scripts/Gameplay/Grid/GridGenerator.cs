@@ -11,8 +11,6 @@ public class GridGenerator : MonoBehaviour
     [SerializeField]
     private float safeBlockProbability = 0.2f;
     
-    private List<GameObject> grids;
-
     private int gridX = 3;
     private int gridZ = 3;
 
@@ -30,8 +28,6 @@ public class GridGenerator : MonoBehaviour
 
     private void Start()
     {
-        grids = new List<GameObject>();
-        
         Init();
     }
 
@@ -45,7 +41,7 @@ public class GridGenerator : MonoBehaviour
 
     public void GenerateGrid()
     {
-        GameObject grid = new GameObject();
+        GameObject grid = new GameObject("Grid");
         grid.transform.SetParent(transform);
         
         grid.transform.localPosition = new Vector3(0, initialGridY, 0);
@@ -53,13 +49,11 @@ public class GridGenerator : MonoBehaviour
         
         int totalCells = gridX * gridZ;
 
-        // Mínimos según el tamaño
         int minEmpties = Mathf.Max(1, totalCells / 9);
         int minfloors = Mathf.Max(5, (totalCells / 9) * 5);
 
         List<GameObject> cells = new List<GameObject>();
 
-        //Bloques que van a salir en la grid
         for (int i = 0; i < totalCells; i++)
         {
             if(i < minEmpties)
@@ -79,7 +73,6 @@ public class GridGenerator : MonoBehaviour
             }
         }
 
-        //Aleatorizas orden de los bloques
         for (int i = 0; i < cells.Count; i++)
         {
             int randomIndex = Random.Range(i, cells.Count);
@@ -106,15 +99,6 @@ public class GridGenerator : MonoBehaviour
             }
         }
 
-        grids.Add(grid);
+        GridManager.Instance.AddGrid(grid);
     }
-
-    public void DeleteFirstGrid()
-    {
-        Destroy(grids[0]);
-        grids.RemoveAt(0);
-    }
-    
-    
-
 }
