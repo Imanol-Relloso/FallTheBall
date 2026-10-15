@@ -27,7 +27,12 @@ public class GridManager : MonoBehaviour
         _grids = new List<GameObject>();
         _processedGrids = new List<GameObject>();
     }
-    
+
+    public void StartGeneration()
+    {
+        gridGenerator.Init();
+    }
+
     public void AddGrid(GameObject grid)
     {
         _grids.Add(grid);
@@ -79,5 +84,22 @@ public class GridManager : MonoBehaviour
     private int GetActualGridIndex()
     {
         return gridGenerator.skipToGrids;
+    }
+
+    public void ResetGrids()
+    {
+        HashSet<GameObject> allGrids = new HashSet<GameObject>(_grids);
+        allGrids.UnionWith(_processedGrids);
+
+        foreach (GameObject grid in allGrids)
+        {
+            if (grid != null)
+                Destroy(grid);
+        }
+
+        _grids.Clear();
+        _processedGrids.Clear();
+
+        _skippedGrids = 0;
     }
 }

@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GridGenerator : MonoBehaviour
 {
@@ -25,14 +27,18 @@ public class GridGenerator : MonoBehaviour
     
     [SerializeField]
     public int skipToGrids = 3;
+    
+    private float _startingGridY;
 
-    private void Start()
+    private void Awake()
     {
-        Init();
+        _startingGridY = initialGridY;
     }
 
     public void Init()
     {
+        initialGridY = _startingGridY;
+        
         for (int i = 0; i < initGridCuantity; i++)
         {
             GenerateGrid();

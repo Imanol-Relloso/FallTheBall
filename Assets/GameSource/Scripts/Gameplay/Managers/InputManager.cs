@@ -27,9 +27,11 @@ public class InputManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        
+        Init();
     }
     
-    private void Start()
+    private void Init()
     {
         PlayerInput playerInput = GetComponent<PlayerInput>();
 

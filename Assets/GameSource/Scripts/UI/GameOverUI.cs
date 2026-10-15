@@ -81,15 +81,17 @@ public class GameOverUI : UIWindow
 
     public void PlayAgain()
     {
-        //Hide();
+        Hide();
         
-        //GameManager.Instance.PlayAgain();
+        GameManager.Instance.PlayAgain();
     }
 
     public void MainMenu()
     {
         UIManager.Instance.ShowWindow("MainMenu");
         DirHide();
+        
+        GameManager.Instance.ResetForMenu();
     }
 
     public void ShowScore()

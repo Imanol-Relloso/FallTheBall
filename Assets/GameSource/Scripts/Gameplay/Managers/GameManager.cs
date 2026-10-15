@@ -4,6 +4,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     
+    [SerializeField]
+    private CameraController cameraController;
+    
+    [SerializeField]
+    private Transform ballTransform;
+    private BallMovement ballMovement;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -14,25 +21,54 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        
+        if (ballTransform != null)
+            ballMovement = ballTransform.GetComponent<BallMovement>();
     }
 
     public void StartGame()
     {
-        Debug.Log("Start Game");
+        //Transicion de la camara
+        cameraController.GameTransition();
         
-        //Como no esta el juego terminado muestra la UI de derrota
-        GameOver();
+        //Reinicia y empieza la generacion
+        GridManager.Instance.ResetGrids();
+        GridManager.Instance.StartGeneration();
+        
+        //Se habilita la bola
+        ballTransform.gameObject.SetActive(true);
+                
+        //Reinicio la bola
+        ballMovement.ResetBall();
+        ballMovement.CanMove();
     }
     public void PlayAgain()
     {
-        Debug.Log("Play Again");
+        //Resetea posicion de bola y descongelo el movimiento
+        ballMovement.ResetBall();
+        ballMovement.CanMove();
         
-        //Como no esta el juego terminado muestra la UI de derrota
-        GameOver();
+        //Transicion de la camara
+        cameraController.PlayAgainTransition();
+        
+        //Se resetean las grids
+        GridManager.Instance.ResetGrids();
+
+        //Empieza una nueva generacion
+        GridManager.Instance.StartGeneration();
     }
 
     public void GameOver()
     {
-        //UIManager.Instance.ShowWindow("GameOver");
+        //Aparece el gameover
+        UIManager.Instance.ShowWindow("GameOver");
+        
+        //Congelo movimiento
+        ballMovement.FreezeMovement();
+    }
+
+    public void ResetForMenu()
+    {
+        cameraController.ResetCamera();
     }
 }

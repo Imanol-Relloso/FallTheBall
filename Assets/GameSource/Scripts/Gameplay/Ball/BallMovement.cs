@@ -17,8 +17,11 @@ public class BallMovement : MonoBehaviour
     [SerializeField] 
     private float moveTime = 0.1f;
 
+    [SerializeField] 
+    private Vector3 initialPos;
 
-
+    private bool _canMove = false;
+    
     private void OnEnable()
     {
         InputManager.Instance.OnKeyInput += PressMove;
@@ -27,6 +30,8 @@ public class BallMovement : MonoBehaviour
 
     private void HandleDragEnd(Vector2 dragDir)
     {
+        if (!_canMove) return;
+            
         Vector2 normalizedDragDir = dragDir.normalized;
 
         if (Mathf.Abs(normalizedDragDir.x) > Mathf.Abs(normalizedDragDir.y))
@@ -53,6 +58,8 @@ public class BallMovement : MonoBehaviour
 
     private void PressMove(Vector2 dir)
     {
+        if (!_canMove) return;
+        
         if (_isMoving)
             SaveInput(dir);
         else
@@ -96,5 +103,23 @@ public class BallMovement : MonoBehaviour
         _isMoving = false; 
         
         TryPostMove();
+    }
+
+    public void ResetBall()
+    {
+        _isMoving = false;
+        _postMove = Vector2.zero;
+        
+        StopAllCoroutines();
+
+        transform.position =  initialPos;
+    }
+    public void FreezeMovement()
+    {
+        _canMove =  false;
+    }
+    public void CanMove()
+    {
+        _canMove = true;
     }
 }
