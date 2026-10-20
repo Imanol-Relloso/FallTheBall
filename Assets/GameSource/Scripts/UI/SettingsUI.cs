@@ -66,12 +66,12 @@ public class SettingsUI : UIWindow
 
     public void ChangeSFXVolume(float volume)
     {
-        Debug.Log("SFX volume: " + volume);
+        AudioManager.Instance.UpdateAudioMixerGroupVolume(volume, AudioType.SFX);
     }
     
     public void ChangeMusicVolume(float volume)
     {
-        Debug.Log("Music volume = " + volume);
+        AudioManager.Instance.UpdateAudioMixerGroupVolume(volume, AudioType.Music);
     }
 
     public void ChangeVibration(bool active)
