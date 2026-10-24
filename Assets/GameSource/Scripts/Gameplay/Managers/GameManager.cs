@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        ScoreManager.Instance.RestartScore();
+        
         //Transicion de la camara
         cameraController.GameTransition();
         
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour
     }
     public void PlayAgain()
     {
+        ScoreManager.Instance.RestartScore();
+        UIManager.Instance.ShowWindow("Game");
+        
         //Resetea posicion de bola y descongelo el movimiento
         ballMovement.ResetBall();
         ballMovement.CanMove();
@@ -62,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         //Aparece el gameover
         UIManager.Instance.ShowWindow("GameOver");
+        UIManager.Instance.HideWindow("Game");
         
         //Congelo movimiento
         ballMovement.FreezeMovement();

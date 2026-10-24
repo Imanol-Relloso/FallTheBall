@@ -29,6 +29,8 @@ public class MainMenuUI : UIWindow
     {
         if (hideOnStart)
             Hide(true);
+        
+        UpdateRecord();
     }
 
     public override void Show(bool instant = false)
@@ -43,6 +45,8 @@ public class MainMenuUI : UIWindow
             DirShow(UIManager.Instance.GetActiveWindowID());
         }
 
+        UpdateRecord();
+        
         _isShowing = true;
     }
 
@@ -58,7 +62,6 @@ public class MainMenuUI : UIWindow
         {
             Debug.LogError("Use DirHide method to hide the window with animation");
         }
-
         _isShowing = false;
     }
 
@@ -101,6 +104,8 @@ public class MainMenuUI : UIWindow
                 break;
         }
 
+        UpdateRecord();
+        
         _isShowing = true;
     }
     public void DirHide(string windowId)
@@ -125,7 +130,6 @@ public class MainMenuUI : UIWindow
                 Debug.LogError("Window not found");
                 break;
         }
-
         _isShowing = false;
     }
 
@@ -134,6 +138,7 @@ public class MainMenuUI : UIWindow
     public void Play()
     {
         GameManager.Instance.StartGame();
+        UIManager.Instance.ShowWindow("Game");
         DirHide("Game");
     }
 
@@ -151,7 +156,7 @@ public class MainMenuUI : UIWindow
 
     public void UpdateRecord()
     {
-        //recordText.text = PlayerPrefs.GetInt("Record", 0).ToString();
+        recordText.text = PlayerPrefs.GetFloat("Record", 0).ToString("0");
     }
 
     #endregion

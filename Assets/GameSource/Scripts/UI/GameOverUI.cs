@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using NaughtyAttributes;
 using TMPro;
@@ -39,6 +40,9 @@ public class GameOverUI : UIWindow
             rectTran.DOScale(Vector3.one, showDuration).SetEase(showEase); 
         }
 
+        ShowScore();
+        ShowRecord();
+        
         _isShowing = true;
     }
     
@@ -76,7 +80,6 @@ public class GameOverUI : UIWindow
         _isShowing = false;
     }
 
-
     #region Bttns
 
     public void PlayAgain()
@@ -96,28 +99,12 @@ public class GameOverUI : UIWindow
 
     public void ShowScore()
     {
-        //scoreText.text = PlayerPrefs.GetInt("Score").ToString();
+        scoreText.text = ScoreManager.Instance.GetGameScore().ToString("0");
     }
 
     public void ShowRecord()
     {
-        //recordText.text = PlayerPrefs.GetInt("Record", 0).ToString();
-    }
-
-    #endregion
-    
-    #region Test
-
-    [Button("Test Show")]
-    private void ShowTest()
-    {
-        Show();
-    }
-    [Button("Test Hide")]
-
-    private void HideTest()
-    {
-        Hide();
+        recordText.text = PlayerPrefs.GetFloat("Record", 0).ToString("0");
     }
 
     #endregion

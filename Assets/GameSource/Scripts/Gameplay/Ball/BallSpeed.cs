@@ -17,9 +17,10 @@ public class BallSpeed : MonoBehaviour
     private Color normalColor = Color.white;
     [SerializeField]
     private Color SupersonicColor = Color.red;
-
+    
     private bool _supersonic = false;
-
+    private float lastDistance = 0.0f;
+    
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -73,5 +74,10 @@ public class BallSpeed : MonoBehaviour
         {
             GameManager.Instance.GameOver();
         }
+    }
+    
+    public bool GetSupersonic()
+    {
+        return _supersonic;
     }
 }
