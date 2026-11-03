@@ -7,7 +7,5 @@ public class SafeBlock : MonoBehaviour
     {
         GameObject grid = transform.parent.gameObject;
         GridManager.Instance.HandleGridExit(grid);
-        
-        ScoreManager.Instance.UpdateScore();
     }
 }
