@@ -117,6 +117,7 @@ public class BallMovement : MonoBehaviour
     public void FreezeMovement()
     {
         _canMove =  false;
+        StopAllCoroutines();
     }
     public void CanMove()
     {

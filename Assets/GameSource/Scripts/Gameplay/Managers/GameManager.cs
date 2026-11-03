@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField]
     private Transform ballTransform;
-    private BallMovement ballMovement;
+    private BallDeath ballDeath;
     
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
         if (ballTransform != null)
-            ballMovement = ballTransform.GetComponent<BallMovement>();
+            ballDeath = ballTransform.GetComponent<BallDeath>();
     }
 
     public void StartGame()
@@ -39,10 +39,10 @@ public class GameManager : MonoBehaviour
         
         //Se habilita la bola
         ballTransform.gameObject.SetActive(true);
-                
-        //Reinicio la bola
-        ballMovement.ResetBall();
-        ballMovement.CanMove();
+        
+        //Resetea posicion de bola y descongelo el movimiento
+        ballDeath.Reset();
+        
     }
     public void PlayAgain()
     {
@@ -50,8 +50,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.ShowWindow("Game");
         
         //Resetea posicion de bola y descongelo el movimiento
-        ballMovement.ResetBall();
-        ballMovement.CanMove();
+        ballDeath.Reset();
         
         //Transicion de la camara
         cameraController.PlayAgainTransition();
@@ -69,8 +68,8 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.ShowWindow("GameOver");
         UIManager.Instance.HideWindow("Game");
         
-        //Congelo movimiento
-        ballMovement.FreezeMovement();
+        //Ball death
+        ballDeath.Death();
     }
 
     public void ResetForMenu()
