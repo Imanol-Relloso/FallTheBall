@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48357b657af5f03448707bb723b9df78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSpeed
-  maxSpeed: 15
+  maxSpeed: 25
   resetSpeed: 5
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   SupersonicColor: {r: 1, g: 0, b: 0, a: 1}
@@ -1817,7 +1817,7 @@ MonoBehaviour:
   floor: {fileID: 1948782330622941135, guid: 9bcf3c627c57a604881c6bbd0d0cc1cf, type: 3}
   safeBlock: {fileID: 9174731811692854511, guid: bc62f3b20208c7846ba0a4e3a5965e96, type: 3}
   safeBlockProbability: 0.2
-  separationY: 12
+  separationY: 20
   initialGridY: -10
   initGridCuantity: 4
   skipToGrids: 2
@@ -2054,25 +2054,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1945356833}
     m_Modifications:
-    - target: {fileID: 43699898197069272, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
-      propertyPath: m_fontSize
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 43699898197069272, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 43699898197069272, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2243018265818498581, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 115
+      propertyPath: m_AnchoredPosition.x
+      value: 195
       objectReference: {fileID: 0}
     - target: {fileID: 2243018265818498581, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1040
+      value: 975
       objectReference: {fileID: 0}
     - target: {fileID: 6135055781891507606, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
       propertyPath: m_Name
@@ -2119,28 +2107,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8017885683684212959, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
-      propertyPath: m_fontSize
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017885683684212959, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017885683684212959, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9099342105249817507, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 115
-      objectReference: {fileID: 0}
-    - target: {fileID: 9099342105249817507, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 50
+      propertyPath: m_text
+      value: 11111111111
       objectReference: {fileID: 0}
     - target: {fileID: 9099342105249817507, guid: 30c38063f5e88fe4992173b3454f0dd0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 965
+      value: 890
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
