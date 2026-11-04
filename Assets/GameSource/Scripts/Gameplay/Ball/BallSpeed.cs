@@ -80,4 +80,13 @@ public class BallSpeed : MonoBehaviour
     {
         return _supersonic;
     }
+    
+    public void SetMaxSpeed(float value)
+    {
+        maxSpeed = value;
+    }
+    public void SetMinSpeed(float value)
+    {
+        resetSpeed = value;
+    }
 }

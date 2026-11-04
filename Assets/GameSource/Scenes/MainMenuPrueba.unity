@@ -850,6 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
   ballSpeed: {fileID: 913417667}
+  sumScore: 5
   OnScoreChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1833,6 +1834,8 @@ MonoBehaviour:
   floor: {fileID: 1948782330622941135, guid: 9bcf3c627c57a604881c6bbd0d0cc1cf, type: 3}
   safeBlock: {fileID: 9174731811692854511, guid: bc62f3b20208c7846ba0a4e3a5965e96, type: 3}
   safeBlockProbability: 0.2
+  gridX: 3
+  gridZ: 3
   separationY: 20
   initialGridY: -10
   initGridCuantity: 4
@@ -1847,6 +1850,55 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2067466422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2067466424}
+  - component: {fileID: 2067466423}
+  m_Layer: 0
+  m_Name: Difficulty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2067466423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067466422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161715c45297b394f915b9f5e9193e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyController
+  ballSpeed: {fileID: 913417667}
+  difficultyLevels:
+  - {fileID: 11400000, guid: 3cea93050daab2f4496982ccbd5a2c55, type: 2}
+  - {fileID: 11400000, guid: 6612fb70cf94e634880e5b689c5890d9, type: 2}
+  - {fileID: 11400000, guid: f2e39ea77bfe95344a2b1f5c2775bb5e, type: 2}
+--- !u!4 &2067466424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067466422}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2130,3 +2182,4 @@ SceneRoots:
   - {fileID: 2008823047}
   - {fileID: 1965981387}
   - {fileID: 913417673}
+  - {fileID: 2067466424}

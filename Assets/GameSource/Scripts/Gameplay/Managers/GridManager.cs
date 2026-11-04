@@ -107,4 +107,15 @@ public class GridManager : MonoBehaviour
 
         _skippedGrids = 0;
     }
+
+    public void SetGridXZ(int grid)
+    {
+        if(gridGenerator.gridX >= grid)
+            return;
+        
+        gridGenerator.gridX = grid;
+        gridGenerator.gridZ = grid;
+        
+        //Cambia la camara
+    }
 }

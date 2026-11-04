@@ -70,11 +70,11 @@ public class GameUI : UIWindow
         _isShowing = false;
     }
 
-    public void UpdateScore(float score)
+    private void UpdateScore(float score)
     {
         scoreText.text = score.ToString("0");
     }
-    public void UpdateRecord(float record)
+    private void UpdateRecord(float record)
     {
         recordText.text = record.ToString("0");
     }

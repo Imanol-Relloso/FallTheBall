@@ -13,8 +13,8 @@ public class GridGenerator : MonoBehaviour
     [SerializeField]
     private float safeBlockProbability = 0.2f;
     
-    private int gridX = 3;
-    private int gridZ = 3;
+    public int gridX = 3;
+    public int gridZ = 3;
 
     [SerializeField]
     private float separationY = 5f; 

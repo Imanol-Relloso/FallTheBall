@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
     private BallSpeed ballSpeed;
     
     private float _score = 0;
+    [SerializeField] 
+    private float sumScore = 5;
     
     public UnityEvent<float> OnScoreChanged;
     public UnityEvent<float> OnRecordChanged;
@@ -32,12 +34,14 @@ public class ScoreManager : MonoBehaviour
         OnScoreChanged?.Invoke(_score);
     }
 
-    public void UpdateScore(float score = 10)
+    public void UpdateScore()
     {
+        float scoreToSum = sumScore;
+            
         if (ballSpeed.GetSupersonic())
-            score *= 2;
+             scoreToSum *= 2;
         
-        _score += score;
+        _score += scoreToSum;
         
         OnScoreChanged?.Invoke(_score);
         
@@ -62,5 +66,10 @@ public class ScoreManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("Record", 0);
         OnRecordChanged?.Invoke(_score);
+    }
+    
+    public void SetSumScore(float sc)
+    {
+        sumScore = sc;
     }
 }
