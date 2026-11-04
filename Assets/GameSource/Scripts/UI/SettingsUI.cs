@@ -1,5 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class SettingsUI : UIWindow
 {
@@ -8,6 +10,11 @@ public class SettingsUI : UIWindow
     private float showPositionX = 540f;
     [SerializeField]
     private float hidePositionX = 2000f;
+    
+    [SerializeField]
+    private Slider musicVolumeSlider;
+    [SerializeField]
+    private Slider sfxVolumeSlider;
 
     void Start()
     {
@@ -18,6 +25,9 @@ public class SettingsUI : UIWindow
     {
         if(hideOnStart)
             Hide(true);
+        
+        musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
     }
     
     public override void Show(bool instant = false)

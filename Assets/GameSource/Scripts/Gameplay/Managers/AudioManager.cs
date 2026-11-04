@@ -159,9 +159,11 @@ public class AudioManager : MonoBehaviour
         {
             case AudioType.Music:
                 _audioManagerData.MusicAudioMixerGroup.audioMixer.SetFloat(_audioManagerData.MusicVolumeParameterName, Mathf.Lerp(-80f, 20f, volume));
+                PlayerPrefs.SetFloat("MusicVolume", volume);
                 break;
             case AudioType.SFX:
                 _audioManagerData.SfxAudioMixerGroup.audioMixer.SetFloat(_audioManagerData.SfxVolumeParameterName, Mathf.Lerp(-80f, 20f, volume));
+                PlayerPrefs.SetFloat("SFXVolume", volume);
                 break;
             case AudioType.Ambience:
                 _audioManagerData.AmbienceAudioMixerGroup.audioMixer.SetFloat(_audioManagerData.AmbienceVolumeParameterName, Mathf.Lerp(-80f, 20f, volume));
