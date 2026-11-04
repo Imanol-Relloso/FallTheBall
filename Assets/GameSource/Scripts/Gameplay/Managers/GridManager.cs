@@ -48,7 +48,7 @@ public class GridManager : MonoBehaviour
         
         _processedGrids.Add(grid);
         
-        if (_processedGrids[0] == grid)
+        if (_processedGrids[0] != grid)
             _processedGrids.RemoveAt(0);
         
         ScoreManager.Instance.UpdateScore();

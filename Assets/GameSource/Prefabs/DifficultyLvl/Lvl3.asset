@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lvl3
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyLevel
   Score: 100
-  GridFloor: 4
+  GridFloor: 3
   minSpeed: 7
   maxSpeed: 20
   SumScore: 7.5

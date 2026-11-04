@@ -16,4 +16,4 @@ MonoBehaviour:
   GridFloor: 3
   minSpeed: 5
   maxSpeed: 15
-  SumScore: 5
+  SumScore: 2
