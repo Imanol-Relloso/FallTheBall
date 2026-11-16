@@ -11,13 +11,13 @@ public class GridGenerator : MonoBehaviour
     private GameObject safeBlock;
 
     [SerializeField]
-    private float safeBlockProbability = 0.2f;
+    public float safeBlockProbability = 0.2f;
     
     public int gridX = 3;
     public int gridZ = 3;
 
     [SerializeField]
-    private float separationY = 5f; 
+    public float separationY = 5f; 
     
     [SerializeField]
     private float initialGridY = -4f;

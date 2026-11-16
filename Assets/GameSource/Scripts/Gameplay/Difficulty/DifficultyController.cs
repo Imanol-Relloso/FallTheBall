@@ -53,12 +53,12 @@ public class DifficultyController : MonoBehaviour
         currentDifficulty = difficultyLevel;
 
         GridManager.Instance.SetGridXZ(difficultyLevel.GridFloor);
+        GridManager.Instance.SetGridY(difficultyLevel.GridSeparationY);
+        GridManager.Instance.SetSafeProbability(difficultyLevel.SafeBlockProbability);
  
         ballSpeed.SetMinSpeed(difficultyLevel.minSpeed);
         ballSpeed.SetMaxSpeed(difficultyLevel.maxSpeed);
         
         ScoreManager.Instance.SetSumScore(difficultyLevel.SumScore);
-        
-        //cambio la camara si es necesario
     }
 }

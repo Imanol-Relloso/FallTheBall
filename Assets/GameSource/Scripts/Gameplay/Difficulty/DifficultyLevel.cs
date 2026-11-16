@@ -6,6 +6,11 @@ public class DifficultyLevel : ScriptableObject
     public float Score;
 
     public int GridFloor;
+    public float GridSeparationY;
+    
+    [Range(0,1)]
+    public float SafeBlockProbability;
+    
     
     public float minSpeed;
     public float maxSpeed;

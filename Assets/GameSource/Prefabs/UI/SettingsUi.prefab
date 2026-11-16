@@ -1566,6 +1566,8 @@ MonoBehaviour:
   hideEase: 1
   showPositionX: 0
   hidePositionX: 1460
+  musicVolumeSlider: {fileID: 7226996120341919987}
+  sfxVolumeSlider: {fileID: 5864150777468049492}
 --- !u!1 &6772151871967235762
 GameObject:
   m_ObjectHideFlags: 0

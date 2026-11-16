@@ -118,4 +118,14 @@ public class GridManager : MonoBehaviour
         
         //Cambia la camara
     }
+
+    public void SetGridY(float gridY)
+    {
+        gridGenerator.separationY =  gridY;
+    }
+
+    public void SetSafeProbability(float safeProb)
+    {
+        gridGenerator.safeBlockProbability = safeProb;
+    }
 }

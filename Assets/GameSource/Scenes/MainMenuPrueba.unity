@@ -367,12 +367,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CanMovement
   initialRot: {x: -90, y: 0, z: 0}
-  initialPos: {x: 0, y: 5, z: -4}
-  finalRot: {x: 50, y: 0, z: 0}
+  initialPos: {x: 0, y: 4, z: -5}
+  finalRot: {x: 55, y: 0, z: 0}
   transitionTime: 0.5
   transitionEase: 1
   ball: {fileID: 913417666}
-  offset: 5
+  offset: 4
 --- !u!114 &574016303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ Transform:
   m_GameObject: {fileID: 574016301}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 5, z: -4}
+  m_LocalPosition: {x: 0, y: 4, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48357b657af5f03448707bb723b9df78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSpeed
-  maxSpeed: 25
+  maxSpeed: 0
   resetSpeed: 5
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   SupersonicColor: {r: 1, g: 0, b: 0, a: 1}
@@ -918,7 +918,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 122
@@ -1838,7 +1838,7 @@ MonoBehaviour:
   gridZ: 3
   separationY: 20
   initialGridY: -10
-  initGridCuantity: 4
+  initGridCuantity: 6
   skipToGrids: 2
 --- !u!4 &2008823047
 Transform:
@@ -1889,6 +1889,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3cea93050daab2f4496982ccbd5a2c55, type: 2}
   - {fileID: 11400000, guid: 6612fb70cf94e634880e5b689c5890d9, type: 2}
   - {fileID: 11400000, guid: f2e39ea77bfe95344a2b1f5c2775bb5e, type: 2}
+  - {fileID: 11400000, guid: ed399d34187cb3c49a9499dcd8e337d2, type: 2}
+  - {fileID: 11400000, guid: d664a99131b18384d86f76a96e4749a3, type: 2}
+  - {fileID: 11400000, guid: 0e74d1ea9218b2544aa780c4e4f83e56, type: 2}
 --- !u!4 &2067466424
 Transform:
   m_ObjectHideFlags: 0
