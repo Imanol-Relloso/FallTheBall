@@ -935,7 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5db885bad86162459f3674c046e9f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ball
-  moveTime: 0.1
+  moveTime: 0.05
   initialPos: {x: 0, y: 0, z: 0}
 --- !u!135 &913417670
 SphereCollider:
@@ -1892,6 +1892,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ed399d34187cb3c49a9499dcd8e337d2, type: 2}
   - {fileID: 11400000, guid: d664a99131b18384d86f76a96e4749a3, type: 2}
   - {fileID: 11400000, guid: 0e74d1ea9218b2544aa780c4e4f83e56, type: 2}
+  - {fileID: 11400000, guid: 4bbe4e5228768924a9d80281c37c18d2, type: 2}
+  - {fileID: 11400000, guid: bb775c3623311a740acf4f7a3887c137, type: 2}
+  - {fileID: 11400000, guid: f8b3a8ee650ea5a4da1ce42191b6aeec, type: 2}
 --- !u!4 &2067466424
 Transform:
   m_ObjectHideFlags: 0
