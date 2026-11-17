@@ -12,11 +12,15 @@ public class BallSpeed : MonoBehaviour
     [SerializeField]
     private float resetSpeed;
     
-    [Header("Color settings")]
+    [Header("Supersonic settings")]
     [SerializeField]
-    private Color normalColor = Color.white;
+    private Material normalMat;
     [SerializeField]
-    private Color SupersonicColor = Color.red;
+    private Material supersonicMat;
+    [SerializeField]
+    private GameObject fireParticles;
+    
+    private GameObject actualFireParticles;
     
     private bool _supersonic = false;
     private float lastDistance = 0.0f;
@@ -54,13 +58,17 @@ public class BallSpeed : MonoBehaviour
         if(_supersonic) return;
             
         _supersonic = true;
-        _meshRenderer.material.color = SupersonicColor;
+        _meshRenderer.material = supersonicMat;
+        
+        actualFireParticles = Instantiate(fireParticles, transform.position + new Vector3(0,0.15f,0), Quaternion.identity);
+        actualFireParticles.transform.parent = transform;
     }
 
     private void LostSupersonic()
     {
         _supersonic = false;
-        _meshRenderer.material.color = normalColor;
+        _meshRenderer.material = normalMat;
+        Destroy(actualFireParticles);
         
         Vector3 vector3 = _rb.linearVelocity;
         vector3.y = -resetSpeed;
