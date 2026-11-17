@@ -21,10 +21,13 @@ public class BallSpeed : MonoBehaviour
     private bool _supersonic = false;
     private float lastDistance = 0.0f;
     
+    private BallDeath ballDeath;
+    
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _meshRenderer = GetComponent<MeshRenderer>();
+        ballDeath = GetComponent<BallDeath>();
     }
 
     private void FixedUpdate()
@@ -34,6 +37,8 @@ public class BallSpeed : MonoBehaviour
 
     private void SpeedControl()
     {
+        if(ballDeath.IsDeath()) return;
+        
         if(_rb.linearVelocity.y <= -maxSpeed)
         {
             Vector3 vector3 = _rb.linearVelocity;
@@ -88,5 +93,9 @@ public class BallSpeed : MonoBehaviour
     public void SetMinSpeed(float value)
     {
         resetSpeed = value;
+    }
+    public void SetSpeed(float value)
+    {
+        _rb.linearVelocity = new Vector3(0f, value, 0f);
     }
 }

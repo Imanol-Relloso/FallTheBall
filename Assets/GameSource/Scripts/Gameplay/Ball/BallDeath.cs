@@ -5,6 +5,7 @@ using DG.Tweening;
 public class BallDeath : MonoBehaviour
 {
     private BallMovement  ballMovement;
+    private BallSpeed ballSpeed;
     
     private Vector3 ballScale;
     private Collider coll;
@@ -17,6 +18,8 @@ public class BallDeath : MonoBehaviour
     private float deathTime = 0.5f;
     [SerializeField]
     private Ease deathEase = Ease.OutQuad;
+
+    private bool isDeath;
     private void OnEnable()
     {
         Init();
@@ -25,6 +28,7 @@ public class BallDeath : MonoBehaviour
     private void Init()
     {
         ballMovement = transform.GetComponent<BallMovement>();
+        ballSpeed = transform.GetComponent<BallSpeed>();
         ballScale = transform.localScale;
         coll = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
@@ -38,10 +42,13 @@ public class BallDeath : MonoBehaviour
         //Desactiva la colision y gravedad para que la animacion funcione 
         coll.enabled = false;
         rb.useGravity = false;
+        ballSpeed.SetSpeed(0);
         
         //Animacion de muerte
         transform.DOScaleY(yScale, deathTime).SetEase(deathEase);
         transform.DOMoveY(transform.position.y - ballScale.y/2, deathTime).SetEase(deathEase);
+        
+        isDeath = true;
     }
 
     public void Reset()
@@ -56,6 +63,12 @@ public class BallDeath : MonoBehaviour
         //Reinicio la bola
         ballMovement.ResetBall();
         ballMovement.CanMove();
+        
+        isDeath = false;
     }
 
+    public bool IsDeath()
+    {
+        return isDeath;
+    }
 }
