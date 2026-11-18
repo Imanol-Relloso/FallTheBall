@@ -77,13 +77,20 @@ public class BallSpeed : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (_supersonic && collision.gameObject.CompareTag("Floor"))
+        if (_supersonic && collision.gameObject.GetComponent<Floor>())
         {
+            Transform grid = GridManager.Instance.GetActualGrid().transform;
+
+            for (int i = 0; i < grid.childCount; i++)
+            {
+                grid.GetChild(i).GetComponent<Floor>()?.SpawnParticle();
+            }
+            
             GridManager.Instance.DeleteActualGrid();
             
             LostSupersonic();
         }
-        else if(!_supersonic && collision.gameObject.CompareTag("Floor"))
+        else if(!_supersonic && collision.gameObject.GetComponent<Floor>())
         {
             GameManager.Instance.GameOver();
         }
