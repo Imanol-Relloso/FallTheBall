@@ -7,7 +7,8 @@ public class Floor : MonoBehaviour
 
     public void SpawnParticle()
     {
-        Instantiate(destroyParticle, transform.position, transform.rotation);
+        GameObject particle = Instantiate(destroyParticle, transform.position, transform.rotation);
+        Destroy(particle, 2f);
     }
 
 }

@@ -93,6 +93,7 @@ public class BallSpeed : MonoBehaviour
         else if(!_supersonic && collision.gameObject.GetComponent<Floor>())
         {
             GameManager.Instance.GameOver();
+            transform.position = collision.gameObject.transform.position + new Vector3(0,0.15f,0);
         }
     }
     
