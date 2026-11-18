@@ -16,6 +16,7 @@ MonoBehaviour:
   GridFloor: 3
   GridSeparationY: 20
   SafeBlockProbability: 0.3
+  supersonicGrid: 5
   minSpeed: 5
   maxSpeed: 15
   SumScore: 2

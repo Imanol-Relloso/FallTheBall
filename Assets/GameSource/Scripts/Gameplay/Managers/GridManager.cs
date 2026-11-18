@@ -12,6 +12,9 @@ public class GridManager : MonoBehaviour
     private List<GameObject> _processedGrids;
 
     private int _skippedGrids = 0;
+    
+    [SerializeField]
+    private BallSpeed ballSpeed;
 
     private void Awake()
     {
@@ -52,6 +55,8 @@ public class GridManager : MonoBehaviour
             _processedGrids.RemoveAt(0);
         
         ScoreManager.Instance.UpdateScore();
+        
+        ballSpeed.AddPassedGrids();
         
         if (_skippedGrids < gridGenerator.skipToGrids)
         {

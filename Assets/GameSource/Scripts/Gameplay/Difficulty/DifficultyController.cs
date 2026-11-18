@@ -55,6 +55,8 @@ public class DifficultyController : MonoBehaviour
         GridManager.Instance.SetGridXZ(difficultyLevel.GridFloor);
         GridManager.Instance.SetGridY(difficultyLevel.GridSeparationY);
         GridManager.Instance.SetSafeProbability(difficultyLevel.SafeBlockProbability);
+        
+        ballSpeed.SetSupersonicGrid(difficultyLevel.supersonicGrid);
  
         ballSpeed.SetMinSpeed(difficultyLevel.minSpeed);
         ballSpeed.SetMaxSpeed(difficultyLevel.maxSpeed);

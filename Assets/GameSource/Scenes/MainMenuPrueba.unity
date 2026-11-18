@@ -897,6 +897,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 556e048eaf74fcc4286d182888be3e25, type: 2}
   supersonicMat: {fileID: 2100000, guid: c82a47d219ab670428174ecbe71f37cc, type: 2}
   fireParticles: {fileID: 4000667520668516784, guid: d0ec0a14054713c4cb454dc5f34fabb2, type: 3}
+  supersonicGrids: 0
 --- !u!54 &913417668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1956,6 +1957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridManager
   gridGenerator: {fileID: 2008823046}
+  ballSpeed: {fileID: 913417667}
 --- !u!1 &2108846811
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,8 @@ public class DifficultyLevel : ScriptableObject
     
     [Range(0,1)]
     public float SafeBlockProbability;
-    
+
+    public int supersonicGrid;
     
     public float minSpeed;
     public float maxSpeed;

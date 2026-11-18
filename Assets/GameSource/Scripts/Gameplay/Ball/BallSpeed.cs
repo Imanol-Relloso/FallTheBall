@@ -19,6 +19,8 @@ public class BallSpeed : MonoBehaviour
     private Material supersonicMat;
     [SerializeField]
     private GameObject fireParticles;
+    [SerializeField]
+    private int supersonicGrids;
     
     private GameObject actualFireParticles;
     
@@ -26,6 +28,8 @@ public class BallSpeed : MonoBehaviour
     private float lastDistance = 0.0f;
     
     private BallDeath ballDeath;
+
+    private int passedGrids;
     
     private void Start()
     {
@@ -56,7 +60,8 @@ public class BallSpeed : MonoBehaviour
     private void IsMaxSpeed()
     {
         if(_supersonic) return;
-            
+        if(passedGrids < supersonicGrids) return;
+        
         _supersonic = true;
         _meshRenderer.material = supersonicMat;
         
@@ -68,6 +73,8 @@ public class BallSpeed : MonoBehaviour
     {
         _supersonic = false;
         _meshRenderer.material = normalMat;
+        supersonicGrids = 0;
+        
         Destroy(actualFireParticles);
         
         Vector3 vector3 = _rb.linearVelocity;
@@ -113,5 +120,14 @@ public class BallSpeed : MonoBehaviour
     public void SetSpeed(float value)
     {
         _rb.linearVelocity = new Vector3(0f, value, 0f);
+    }
+    public void AddPassedGrids()
+    {
+        passedGrids++;
+    }
+
+    public void SetSupersonicGrid(int value)
+    {
+        supersonicGrids = value;
     }
 }
