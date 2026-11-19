@@ -64,6 +64,8 @@ public class BallDeath : MonoBehaviour
         ballMovement.ResetBall();
         ballMovement.CanMove();
         
+        ballSpeed.SetSupersonicGrid(0);
+        
         isDeath = false;
     }
 
