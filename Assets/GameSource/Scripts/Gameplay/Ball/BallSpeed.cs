@@ -126,6 +126,11 @@ public class BallSpeed : MonoBehaviour
         passedGrids++;
     }
 
+    public void SetPassedGrids(int value)
+    {
+        passedGrids = value;
+    }
+
     public void SetSupersonicGrid(int value)
     {
         supersonicGrids = value;
