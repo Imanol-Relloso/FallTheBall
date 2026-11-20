@@ -64,6 +64,7 @@ public class BallSpeed : MonoBehaviour
         
         _supersonic = true;
         _meshRenderer.material = supersonicMat;
+        VibrationManager.Instance.MediumVibration();
         
         actualFireParticles = Instantiate(fireParticles, transform.position + new Vector3(0,0.15f,0), Quaternion.identity);
         actualFireParticles.transform.parent = transform;
@@ -73,7 +74,8 @@ public class BallSpeed : MonoBehaviour
     {
         _supersonic = false;
         _meshRenderer.material = normalMat;
-        supersonicGrids = 0;
+        passedGrids = 0;
+        VibrationManager.Instance.HeavyVibration();
         
         Destroy(actualFireParticles);
         
@@ -99,6 +101,7 @@ public class BallSpeed : MonoBehaviour
         }
         else if(!_supersonic && collision.gameObject.GetComponent<Floor>())
         {
+            VibrationManager.Instance.HeavyVibration();
             GameManager.Instance.GameOver();
             transform.position = collision.gameObject.transform.position + new Vector3(0,0.15f,0);
         }

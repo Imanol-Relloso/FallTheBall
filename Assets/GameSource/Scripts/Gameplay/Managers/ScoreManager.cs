@@ -37,9 +37,14 @@ public class ScoreManager : MonoBehaviour
     public void UpdateScore()
     {
         float scoreToSum = sumScore;
-            
+
         if (ballSpeed.GetSupersonic())
+        {
              scoreToSum *= 2;
+            VibrationManager.Instance.MediumVibration();
+        }
+        else
+            VibrationManager.Instance.LightVibration();
         
         _score += scoreToSum;
         

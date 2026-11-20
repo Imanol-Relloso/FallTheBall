@@ -15,6 +15,8 @@ public class SettingsUI : UIWindow
     private Slider musicVolumeSlider;
     [SerializeField]
     private Slider sfxVolumeSlider;
+    [SerializeField]
+    private Toggle vibrationToggle;
 
     void Start()
     {
@@ -28,6 +30,7 @@ public class SettingsUI : UIWindow
         
         musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
         sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        vibrationToggle.isOn = PlayerPrefs.GetInt("VibrationEnabled") == 1;
     }
     
     public override void Show(bool instant = false)
@@ -86,6 +89,6 @@ public class SettingsUI : UIWindow
 
     public void ChangeVibration(bool active)
     {
-        Debug.Log("Vibration = " + active);
+        VibrationManager.Instance.SetVibration(active);
     }
 }
