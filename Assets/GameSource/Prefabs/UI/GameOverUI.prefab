@@ -1102,7 +1102,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 4604894441096398771}
   hideOnStart: 1
   showDuration: 1
-  hideDuration: 0.5
+  hideDuration: 0.35
   showEase: 27
   hideEase: 26
   showPosition: 0

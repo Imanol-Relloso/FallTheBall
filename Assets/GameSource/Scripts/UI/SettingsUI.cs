@@ -13,8 +13,12 @@ public class SettingsUI : UIWindow
     
     [SerializeField]
     private Slider musicVolumeSlider;
+    private float lastMusicVolume;
+    
     [SerializeField]
     private Slider sfxVolumeSlider;
+    private float lastSfxVolume;
+    
     [SerializeField]
     private Toggle vibrationToggle;
 
@@ -75,6 +79,11 @@ public class SettingsUI : UIWindow
         UIManager.Instance.ShowWindow("MainMenu");
 
         Hide();
+    }
+    public void VibrationButton()
+    {
+        ChangeVibration(!vibrationToggle.isOn);
+        vibrationToggle.isOn = PlayerPrefs.GetInt("VibrationEnabled") == 1;
     }
 
     public void ChangeSFXVolume(float volume)
