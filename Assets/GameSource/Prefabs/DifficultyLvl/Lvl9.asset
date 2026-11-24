@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyLevel
   Score: 800
   GridFloor: 3
-  GridSeparationY: 40
+  GridSeparationY: 50
   SafeBlockProbability: 0.1
   supersonicGrid: 10
-  minSpeed: 25
+  minSpeed: 30
   maxSpeed: 60
-  SumScore: 10
+  SumScore: 15

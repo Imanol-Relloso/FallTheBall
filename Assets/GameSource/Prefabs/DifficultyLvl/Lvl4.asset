@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6915f7a924200a344a85aaeb258710dc, type: 3}
   m_Name: Lvl4
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyLevel
-  Score: 200
+  Score: 100
   GridFloor: 3
   GridSeparationY: 20
-  SafeBlockProbability: 0.2
+  SafeBlockProbability: 0.1
   supersonicGrid: 7
-  minSpeed: 10
+  minSpeed: 15
   maxSpeed: 25
   SumScore: 7.5
