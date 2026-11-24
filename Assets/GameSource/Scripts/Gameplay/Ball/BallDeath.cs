@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
 using DG.Tweening;
 
@@ -18,6 +20,10 @@ public class BallDeath : MonoBehaviour
     private float deathTime = 0.5f;
     [SerializeField]
     private Ease deathEase = Ease.OutQuad;
+    
+    [SerializeField]
+    private float InvulnerableTime = 0.2f;
+    private bool isInvulnerable;
 
     private bool isDeath;
     private void OnEnable()
@@ -36,6 +42,8 @@ public class BallDeath : MonoBehaviour
 
     public void Death()
     {
+        if(isInvulnerable || isDeath) return;
+        
         //Congelo movimiento
         ballMovement.FreezeMovement();
         
@@ -49,6 +57,15 @@ public class BallDeath : MonoBehaviour
         transform.DOMoveY(transform.position.y - ballScale.y/2, deathTime).SetEase(deathEase);
         
         isDeath = true;
+    }
+
+    public IEnumerator Invulnerable()
+    {
+        isInvulnerable = true;
+        
+        yield return new WaitForSeconds(InvulnerableTime);
+        
+        isInvulnerable = false;
     }
 
     public void Reset()

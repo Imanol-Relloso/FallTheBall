@@ -76,12 +76,14 @@ public class BallSpeed : MonoBehaviour
         _meshRenderer.material = normalMat;
         passedGrids = 0;
         VibrationManager.Instance.HeavyVibration();
-        
+
         Destroy(actualFireParticles);
-        
+
         Vector3 vector3 = _rb.linearVelocity;
         vector3.y = -resetSpeed;
         _rb.linearVelocity = vector3;
+
+        StartCoroutine(ballDeath.Invulnerable());
     }
 
     private void OnCollisionEnter(Collision collision)
